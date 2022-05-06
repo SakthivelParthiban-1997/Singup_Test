@@ -1,0 +1,44 @@
+using OpenQA.Selenium;  
+using OpenQA.Selenium.Chrome;  
+using System;  
+using System.Collections.Generic;  
+using System.Linq;  
+using System.Text;  
+using System.Threading;  
+using System.Threading.Tasks;  
+namespace SeleniumTest  
+{  
+class Program  
+{  
+static void Main(string[] args)  
+{  
+IWebDriver driver = new ChromeDriver();  
+driver.Navigate().GoToUrl("espn.com");    
+IWebElement elem = driver.FindElement(By.xpath("//*[@id='sideLogin-left-rail']/button[1]"));  
+elem.Click();  
+IWebElement firstname = driver.FindElement(By.Name("firstName"));  
+firstname.SendKeys("Sakthivel");
+IWebElement lastname = driver.FindElement(By.Name("lastName"));  
+lastname.SendKeys("Parthiban");
+IWebElement email = driver.FindElement(By.Name("email"));  
+email.SendKeys("sakthivelparthiban25@gmail.com");
+IWebElement pwd = driver.FindElement(By.Name("newPassword"));  
+pwd.SendKeys("Sakthi@1234567");
+IWebElement clicksingup = driver.FindElement(By.xpath("//*[@id='did-ui-view']/div/section/section/form/section[6]/div/button"));  
+clicksingup.Click();
+IWebElement loginemail = driver.FindElement(By.xpath("//*[@id='did-ui-view']/div/section/section/form/section/div[1]/div/label/span[2]/input"));  
+loginemail .SendKeys("sakthivelparthiban25@gmail.com");
+IWebElement loginpwd = driver.FindElement(By.xpath("//*[@id='did-ui-view']/div/section/section/form/section/div[2]/div/label/span[2]/input"));  
+loginpwd.SendKeys("Sakthi@1234567");
+IWebElement loginbutton = driver.FindElement(By.xpath("//*[@id='did-ui-view']/div/section/section/form/section/div[3]/button"));  
+loginbutton.Click();
+IWebElement searchbar1 = driver.FindElement(By.xpath("///*[@id='global-search-input']"));  
+searchbar1.Click();
+IWebElement searchbarElemnt = driver.FindElement(By.xpath("//*[@id='global-search-input']"));  
+searchbarElemnt.SendKeys("cricket");
+IWebElement followcricket = driver.FindElement(By.xpath("//*[@id='38d24419-7a92-34a3-abb0-16a808da8f1b']/div[2]/div[1]/span/span")); 
+followcricket.Click();
+driver.Close();  
+}  
+}  
+}  
